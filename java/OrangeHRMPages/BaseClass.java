@@ -50,7 +50,7 @@ public class BaseClass {
 	public void adminLogin() {
 		driver.findElement(By.name("username")).sendKeys(loginprop.getProperty("validUser"));
 		driver.findElement(By.name("password")).sendKeys(loginprop.getProperty("validPass"));
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.findElement(By.xpath(loginprop.getProperty("loginbutton"))).click();
 	}
 
 	public void exit() {

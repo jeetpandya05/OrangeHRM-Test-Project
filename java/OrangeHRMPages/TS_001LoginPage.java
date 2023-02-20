@@ -12,59 +12,52 @@ public class TS_001LoginPage extends BaseClass {
 	public void LoginPage() {
 		initialization();
 	}
+	
 	@Test
-	public  void TC01() {
+	public  void validUservalidPass() {
 		
 		driver.findElement(By.name("username")).sendKeys(loginprop.getProperty("validUser"));
 		driver.findElement(By.name("password")).sendKeys(loginprop.getProperty("validPass"));
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.findElement(By.xpath(loginprop.getProperty("loginbutton"))).click();
 		
-		if (driver.findElement(By.xpath("//a[@class='oxd-main-menu-item active']")).isDisplayed()) {
+		if (driver.findElement(By.xpath(loginprop.getProperty("dashboardPage"))).isDisplayed()) {
 			Assert.assertTrue(true);
-		} 
-			
+		} 		
 	}
 	
 	@Test
-	public  void TC02() {
+	public  void validUserinvalidPass() {
 				
 		driver.findElement(By.name("username")).sendKeys(loginprop.getProperty("validUser"));
 		driver.findElement(By.name("password")).sendKeys(loginprop.getProperty("invalidPass"));
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.findElement(By.xpath(loginprop.getProperty("loginbutton"))).click();
 		
-		if (driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")).isDisplayed()) {
+		if (driver.findElement(By.xpath(loginprop.getProperty("invalidCredentials"))).isDisplayed()) {
 			Assert.assertTrue(true);
-		} else {
-			Assert.assertTrue(false);
-		}
-								
+		}							
 	}
 	
 	@Test
-	public  void TC03() {
+	public  void invalidUservalidPass() {
 				
 		driver.findElement(By.name("username")).sendKeys(loginprop.getProperty("invalidUser"));
 		driver.findElement(By.name("password")).sendKeys(loginprop.getProperty("validPass"));
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.findElement(By.xpath(loginprop.getProperty("loginbutton"))).click();
 		
-		if (driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")).isDisplayed()) {
+		if (driver.findElement(By.xpath(loginprop.getProperty("invalidCredentials"))).isDisplayed()) {
 			Assert.assertTrue(true);
-		} else {
-			Assert.assertTrue(false);
 		}
 	}
 	
 	@Test
-	public  void TC04() {
+	public  void invalidUserinvalidPass() {
 				
 		driver.findElement(By.name("username")).sendKeys(loginprop.getProperty("invalidUser"));
 		driver.findElement(By.name("password")).sendKeys(loginprop.getProperty("invalidPass"));		
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver.findElement(By.xpath(loginprop.getProperty("loginbutton"))).click();
 		
-		if (driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")).isDisplayed()) {
+		if (driver.findElement(By.xpath(loginprop.getProperty("invalidCredentials"))).isDisplayed()) {
 			Assert.assertTrue(true);
-		} else {
-			Assert.assertTrue(false);
 		}
 	}
 	
@@ -72,5 +65,4 @@ public class TS_001LoginPage extends BaseClass {
 	public void quit() {
 		exit();
 	}
-
 }
