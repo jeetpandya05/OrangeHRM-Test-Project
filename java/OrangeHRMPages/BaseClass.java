@@ -19,6 +19,10 @@ public class BaseClass {
 	public Properties forgotpassprop;
 	public Properties newuserprop;
 	public Properties createloginprop;
+	public Properties useradminprop;
+	public Properties assignleaveprop;
+	public Properties applyleaveprop;
+	public Properties recruitmentprop;
 
 	@BeforeClass
 	public void userData() throws IOException {
@@ -37,6 +41,22 @@ public class BaseClass {
 		FileInputStream createloginfile = new FileInputStream("./src/test/java/PropertiesFiles/createlogin.properties");
 		createloginprop = new Properties();
 		createloginprop.load(createloginfile);
+		
+		FileInputStream useradminfile = new FileInputStream("./src/test/java/PropertiesFiles/useradmin.properties");
+		useradminprop = new Properties();
+		useradminprop.load(useradminfile);
+		
+		FileInputStream assignleavefile = new FileInputStream("./src/test/java/PropertiesFiles/assignleave.properties");
+		assignleaveprop = new Properties();
+		assignleaveprop.load(assignleavefile);
+		
+		FileInputStream applyleavefile = new FileInputStream("./src/test/java/PropertiesFiles/applyleave.properties");
+		applyleaveprop = new Properties();
+		applyleaveprop.load(applyleavefile);
+		
+		FileInputStream recruitmentfile = new FileInputStream("./src/test/java/PropertiesFiles/recruitment.properties");
+		recruitmentprop = new Properties();
+		recruitmentprop.load(recruitmentfile);
 	}
 	
 	public void initialization() {
